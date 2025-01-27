@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshul Deep | Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5a2d89, #2e0854); /* Gradient background with shades of purple */
+            color: #e0e0e0; /* Light text for contrast */
+            text-align: center;
+        }
+        nav {
+            background: rgba(30, 30, 30, 0.9); /* Darker navbar background */
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Adding shadow for depth */
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: rgb(151, 72, 152); /* Purple accent */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: rgb(55, 5, 130); /* Darker purple accent on hover */
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(48, 11, 73, 0.8); /* Dark purple background for hero section */
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: rgb(151, 72, 152); /* Purple text color */
+        }
+        .hero span {
+            color: rgb(55, 5, 130); /* Darker purple text */
+        }
+        .content-section {
+            padding: 4rem 2rem;
+            background: rgba(85, 45, 137, 0.9); /* Medium purple for content sections */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1); /* Light card background on dark theme */
+            padding: 3rem;
+            border-radius: 15px;
+            width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: 2px solid rgb(151, 72, 152); /* Purple border */
+        }
+        .skill-card img {
+            width: 60px;
+            margin-bottom: 1rem;
+        }
+        .skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            border-color: rgb(55, 5, 130); /* Darker purple on hover */
+        }
+        footer {
+            padding: 1rem;
+            background: rgba(30, 30, 30, 0.9); /* Darker footer background */
+            position: relative;
+            bottom: 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4); /* Subtle shadow for footer */
+        }
+        footer p {
+            color: rgb(151, 72, 152); /* Purple text for footer */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hi, I'm <span>Anshul Deep</span></h1>
+        <p>A Passionate Developer</p>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2>About Me</h2>
+        <p>I am an experienced developer with a diverse skill set, including web development, Discord bot creation, game hacking, reverse engineering, and Python automation.</p>
+    </section>
+
+    <section id="skills" class="content-section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <img src="webdev.png" alt="Web Dev">
+                <h3>Web Development</h3>
+                <p>Building modern and responsive websites.</p>
+            </div>
+            <div class="skill-card">
+                <img src="discord.png" alt="Discord Bots">
+                <h3>Discord Bots</h3>
+                <p>Creating powerful bots with automation.</p>
+            </div>
+            <div class="skill-card">
+                <img src="gamehacking.png" alt="Game Hacking">
+                <h3>Game Hacking</h3>
+                <p>Reverse engineering and exploiting games.</p>
+            </div>
+            <div class="skill-card">
+                <img src="reverse.png" alt="Reverse Engineering">
+                <h3>Reverse Engineering</h3>
+                <p>Analyzing and modifying software internals.</p>
+            </div>
+            <div class="skill-card">
+                <img src="python.png" alt="Python Automation">
+                <h3>Python Automation</h3>
+                <p>Automating tasks with Python scripting.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Anshul Deep. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
