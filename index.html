@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #5a2d89, #2e0854); /* Gradient background with shades of purple */
-            color: #e0e0e0; /* Light text for contrast */
+            color: #f5f5f5; /* Brighter text for better contrast */
             text-align: center;
         }
         nav {
@@ -33,13 +33,16 @@
             gap: 2rem;
         }
         nav a {
-            color: rgb(151, 72, 152); /* Purple accent */
+            color: #ffccff; /* Lighter accent color */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            transition: color 0.3s, text-shadow 0.3s;
         }
         nav a:hover {
-            color: rgb(55, 5, 130); /* Darker purple accent on hover */
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
         }
         .hero {
             height: 100vh;
@@ -47,23 +50,37 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba(48, 11, 73, 0.8); /* Dark purple background for hero section */
+            background: rgba(48, 11, 73, 0.8);
             animation: fadeIn 2s ease-in-out;
         }
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            color: rgb(151, 72, 152); /* Purple text color */
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #e0c3fc; /* Soft pastel purple for readability */
+            text-shadow: 
+                0 0 8px rgba(151, 72, 152, 0.8),  /* Soft purple glow */
+                0 0 16px rgba(151, 72, 152, 0.6),
+                0 0 24px rgba(151, 72, 152, 0.4);
         }
         .hero span {
-            color: rgb(55, 5, 130); /* Darker purple text */
+            color: #bb33ff;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #ddd;
         }
         .content-section {
             padding: 4rem 2rem;
-            background: rgba(85, 45, 137, 0.9); /* Medium purple for content sections */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+            background: rgba(85, 45, 137, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
             border-radius: 10px;
             margin: 2rem 0;
+        }
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: #ffccff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
         .skills-container {
             display: flex;
@@ -72,61 +89,78 @@
             gap: 2rem;
         }
         .skill-card {
-            background: rgba(255, 255, 255, 0.1); /* Light card background on dark theme */
+            background: rgba(255, 255, 255, 0.1);
             padding: 3rem;
             border-radius: 15px;
             width: 350px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            border: 2px solid rgb(151, 72, 152); /* Purple border */
+            border: 2px solid #ff99ff;
         }
         .skill-card img {
             width: 60px;
             margin-bottom: 1rem;
         }
+        .skill-card h3 {
+            color: #ff99ff;
+            font-size: 1.8rem;
+        }
+        .skill-card p {
+            color: #f0f0f0;
+        }
         .skill-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-color: rgb(55, 5, 130); /* Darker purple on hover */
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            border-color: #bb33ff;
         }
         footer {
             padding: 1rem;
-            background: rgba(30, 30, 30, 0.9); /* Darker footer background */
+            background: rgba(30, 30, 30, 0.9);
             position: relative;
             bottom: 0;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4); /* Subtle shadow for footer */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
         }
         footer p {
-            color: rgb(151, 72, 152); /* Purple text for footer */
+            color: #ffccff;
+            font-size: 1.2rem;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <section class="hero">
         <h1>Hi, I'm <span>Anshul Deep</span></h1>
         <p>A Passionate Developer</p>
     </section>
 
-    <section id="about" class="content-section">
-        <h2>About Me</h2>
-        <p>I am an experienced developer with a diverse skill set, including web development, Discord bot creation, game hacking, reverse engineering, and Python automation.</p>
+    <section id="about" class="content-section" style="max-width: 1000px; margin: 40px auto; padding: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); text-align: center;">
+        <h2 style="font-size: 2.5rem; font-weight: bold; color: #ff99ff; text-shadow: 0 0 15px #ff99ff;">About Me</h2>
+        <p style="font-size: 1.4rem; color: #ddd; line-height: 1.6;">
+            I'm <strong style="color: #ff66ff; text-shadow: 0 0 10px #ff66ff;">Anshul Deep</strong>, an Indian student known online as 
+            <strong style="color: #ff66ff; text-shadow: 0 0 10px #ff66ff;">oAnshul</strong>. I specialize in 
+            <span style="color: #bb33ff; font-weight: bold; text-shadow: 0 0 12px #bb33ff;">Python automation</span>, 
+            <span style="color: #bb33ff; font-weight: bold; text-shadow: 0 0 12px #bb33ff;">low-level DirectX development</span>, 
+            <span style="color: #bb33ff; font-weight: bold; text-shadow: 0 0 12px #bb33ff;">data management</span>, and 
+            <span style="color: #bb33ff; font-weight: bold; text-shadow: 0 0 12px #bb33ff;">bot creation</span>.
+        </p>
+        <p style="font-size: 1.4rem; color: #ddd; line-height: 1.6;">
+            I am proficient in <span style="color: #ffcc00; font-weight: bold; text-shadow: 0 0 10px #ffcc00;">Python</span>, 
+            <span style="color: #ffcc00; font-weight: bold; text-shadow: 0 0 10px #ffcc00;">C++</span>, and 
+            <span style="color: #ffcc00; font-weight: bold; text-shadow: 0 0 10px #ffcc00;">C</span>, while also exploring 
+            <span style="color: #ffcc00; font-weight: bold; text-shadow: 0 0 10px #ffcc00;">Java</span> and 
+            <span style="color: #ffcc00; font-weight: bold; text-shadow: 0 0 10px #ffcc00;">JavaScript</span>.
+        </p>
+        <p style="font-size: 1.4rem; color: #ddd; line-height: 1.6;">
+            I enjoy taking on technical challenges, from <span style="color: #66ff66; font-weight: bold; text-shadow: 0 0 10px #66ff66;">game hacking</span> 
+            to <span style="color: #66ff66; font-weight: bold; text-shadow: 0 0 10px #66ff66;">automating workflows</span>. 
+            My passion lies in constantly learning new technologies and developing solutions that make a difference.
+        </p>
     </section>
+        
 
     <section id="skills" class="content-section">
         <h2>Skills</h2>
@@ -164,7 +198,6 @@
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
