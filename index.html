@@ -6,7 +6,6 @@
     <title>oAnshul | Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-
         :root {
             --dark-bg: #1a1a1a;
             --dark-gray: #2a2a2a;
@@ -14,6 +13,7 @@
             --muted-purple: #b0a4e3;
             --soft-white: #f5f5f5;
             --neon-purple: #bc13fe;
+            --soft-purple: #b79dc5;
         }
 
         * {
@@ -171,12 +171,12 @@
             border: 1px solid var(--muted-purple);
         }
 
-        .about h2 {
-            font-size: 2rem;
+        h2 {
+            font-size: 2.5rem;
             color: var(--muted-purple);
-            margin-bottom: 2rem;
-            font-weight: 400;
-            text-align: left;
+            margin-bottom: 3rem;
+            text-align: center;
+            animation: slideInUp 0.8s ease-out;
         }
 
         .about p {
@@ -189,14 +189,6 @@
 
         .skills {
             padding: 5rem 0;
-        }
-
-        .skills h2 {
-            font-size: 2rem;
-            color: var(--soft-white);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: 300;
         }
 
         .skills-grid {
@@ -233,14 +225,6 @@
 
         .projects {
             padding: 5rem 0;
-        }
-
-        .projects h2 {
-            font-size: 2rem;
-            color: var(--soft-white);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: 300;
         }
 
         .project-grid {
@@ -290,16 +274,131 @@
         }
 
         .contact {
-            text-align: center;
             padding: 5rem 0;
-            animation: fadeIn 1.5s ease-in-out;
+            border-top: 1px solid var(--dark-gray);
         }
 
-        .contact h2 {
-            font-size: 2rem;
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 0 2rem;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: var(--dark-gray);
+            border-radius: 10px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--lavender);
+        }
+
+        .contact-info-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--muted-purple);
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-form {
+            padding: 2rem;
+            background: var(--dark-gray);
+            border-radius: 10px;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--lavender);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--muted-purple);
+            border-radius: 5px;
+            background: var(--dark-bg);
+            color: var(--lavender);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--soft-purple);
+            box-shadow: 0 0 8px rgba(176, 164, 227, 0.3);
+        }
+
+        /* Add hover effects for links */
+        .contact-info-item a {
+            color: var(--lavender);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info-item a:hover {
+            color: var(--muted-purple);
+        }
+
+        /* Adjust spacing for additional items */
+        .contact-info {
+            padding: 2rem 1.5rem;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--muted-purple);
             color: var(--soft-white);
-            margin-bottom: 2rem;
-            font-weight: 300;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--soft-purple);
+            transform: translateY(-3px);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(46, 125, 50, 0.2);
+            color: #81c784;
+        }
+
+        .form-message.error {
+            background: rgba(211, 47, 47, 0.2);
+            color: #ef5350;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         .social-links {
@@ -410,13 +509,66 @@
         </div>
     </section>    
 
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <h2>Get in Touch</h2>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>India</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>anshul@oanshul.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/oAnshull" target="_blank">github.com/oAnshull</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fab fa-discord"></i>
+                        <div>
+                            <h3>Discord</h3>
+                            <a href="https://discord.gg/KN96MhqmyF" target="_blank">oanshul</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h3>Instagram</h3>
+                            <a href="https://instagram.com/oAnshull" target="_blank">@oAnshull</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-message"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -435,6 +587,37 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Form submission handling
+        const form = document.querySelector('.contact-form');
+        const formMessage = document.querySelector('.form-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                formMessage.style.display = 'block';
+                formMessage.classList.add('success');
+                formMessage.textContent = 'Message sent successfully! 🚀';
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                formMessage.style.display = 'block';
+                formMessage.classList.add('error');
+                formMessage.textContent = 'Oops! Something went wrong. Please try again.';
+            }
         });
     </script>
 </body>
