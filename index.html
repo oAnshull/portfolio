@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- single code block delivery using fenced code best practice -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>oAnshul | Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -208,18 +208,17 @@
             column-gap: 2rem;
         }
         .project-card {
-        display: inline-block;
-        width: 100%;
-        margin: 0 0 2rem;
-        break-inside: avoid;
-
-        background: var(--dark-gray);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        animation: fadeIn 1.5s ease-in-out;
+            display: inline-block;
+            width: 100%;
+            margin: 0 0 2rem;
+            break-inside: avoid;
+            background: var(--dark-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
         }
         .project-card:hover {
             transform: translateY(-5px);
@@ -253,22 +252,21 @@
         }
 
         .project-info .full-desc {
-            display: block;            /* keep in flow for height calc */
-            overflow: hidden;          /* hide during animation */
-            max-height: 0;             /* collapsed */
-            opacity: 0;                /* fade effect */
+            display: block;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
             transform: translateY(-6px);
             transition:
                 max-height 0.45s ease,
                 opacity 0.35s ease,
-                transform 0.35s ease;  /* smooth slide-open */
+                transform 0.35s ease;
         }
         .project-card.expanded .full-desc {
-            max-height: 800px;         /* cap for CSS-only approach */
+            max-height: 800px;
             opacity: 1;
             transform: translateY(0);
         }
-        /* For perfect auto height animation, use JS to set from scrollHeight (optional in script). */
 
         .features-list {
             list-style: none;
@@ -569,24 +567,64 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200?text=Coming+Soon" alt="Coming Soon Cover">
+                    <img src="NGT.png" alt="NetherGames Tracker Cover">
                     <div class="project-info">
-                        <h3>Coming Soon</h3>
-                        <p class="brief-desc">Exciting new project in development!</p>
+                        <h3><i class="fab fa-discord"></i> NetherGames Tracker</h3>
+                        <p class="brief-desc">A verified Discord bot for tracking Minecraft player stats on NetherGames.</p>
                         <div class="full-desc">
-                            <p>Stay tuned for upcoming projects!</p>
+                            <p>NetherGames Tracker is a verified Discord bot used by over 300 servers, designed to fetch and track player statistics from the NetherGames Minecraft server using its API. It provides real-time stats and unique tracking features for daily and weekly performance.</p>
+                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
+                            <ul class="features-list">
+                                <li>Integrated NetherGames API for real-time player stats retrieval</li>
+                                <li>Developed database architecture using MongoDB for stat tracking</li>
+                                <li>Implemented efficient data storage and retrieval for historical stats</li>
+                            </ul>
+                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
+                            <ul class="features-list">
+                                <li><strong>Real-time Stats:</strong> Fetches player stats like kills, wins, and more via NetherGames API</li>
+                                <li><strong>Stat Tracking:</strong> Stores and tracks player stats over time for daily/weekly analysis</li>
+                                <li><strong>Custom Queries:</strong> Allows users to check specific metrics like "Games won in a week" or "Kills today"</li>
+                                <li><strong>Scalable Design:</strong> Supports over 300 Discord servers with high reliability</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>Discord.py</span>
+                                <span>NetherGames API</span>
+                                <span>MongoDB</span>
+                                <span>API Integration</span>
+                            </div>
                         </div>
                         <i class="fas fa-chevron-down expand-icon" aria-label="Expand project"></i>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/350x200?text=Coming+Soon" alt="Coming Soon Cover">
+                    <img src="NGGM.png" alt="NGGM Cover">
                     <div class="project-info">
-                        <h3>Coming Soon</h3>
-                        <p class="brief-desc">Exciting new project in development!</p>
+                        <h3><i class="fab fa-discord"></i> NGGM (NetherGames Guild Manager)</h3>
+                        <p class="brief-desc">A verified Discord bot for managing NetherGames guilds with advanced features.</p>
                         <div class="full-desc">
-                            <p>Stay tuned for upcoming projects!</p>
+                            <p>NGGM or NetherGames Guild Manager is another verified Discord bot with over 100 servers, acting as a successor to NetherGames Tracker with more intricate features. Unlike its predecessor, NGGM tracks an entire guild of players rather than just one, offering advanced management tools not available in the Minecraft server itself.</p>
+                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
+                            <ul class="features-list">
+                                <li>Enhanced NetherGames API integration for guild-wide stat tracking</li>
+                                <li>Designed a robust MongoDB schema for guild and player data management</li>
+                                <li>Mastered API integration techniques through this project</li>
+                            </ul>
+                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
+                            <ul class="features-list">
+                                <li><strong>Guild Management:</strong> Kick, invite, or promote guild members</li>
+                                <li><strong>Advanced Bans:</strong> Complete ban from joining a guild with a strike system</li>
+                                <li><strong>Goal System:</strong> Custom daily/weekly goals for guilds with automatic tracking</li>
+                                <li><strong>Stat Rankings:</strong> Displays player rankings within the guild based on stats</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>Discord.py</span>
+                                <span>NetherGames API</span>
+                                <span>MongoDB</span>
+                                <span>API Integration</span>
+                            </div>
                         </div>
                         <i class="fas fa-chevron-down expand-icon" aria-label="Expand project"></i>
                     </div>
@@ -663,7 +701,7 @@
             document.querySelector('#about').scrollIntoView({
                 behavior: 'smooth'
             });
-        }); // smooth anchor scrolling
+        });
 
         // Smooth scroll for internal anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -673,7 +711,7 @@
                     behavior: 'smooth'
                 });
             });
-        }); // smooth anchor scrolling
+        });
 
         // Form submission handling
         const form = document.querySelector('.contact-form');
@@ -703,54 +741,17 @@
                 formMessage.classList.add('error');
                 formMessage.textContent = 'Oops! Something went wrong. Please try again.';
             }
-        }); // basic fetch handling
+        });
 
         // Project card expand/collapse with isolated toggling via chevron
         document.querySelectorAll('.project-card').forEach(card => {
             const expandIcon = card.querySelector('.expand-icon');
             if (!expandIcon) return;
             expandIcon.addEventListener('click', function (e) {
-                e.stopPropagation(); // prevent bubbling to parent containers
+                e.stopPropagation();
                 card.classList.toggle('expanded');
             });
-        }); // isolated per-card expansion
-
-        // Optional: perfect auto-height animation (uncomment to use)
-        // This replaces the CSS max-height cap by using scrollHeight.
-        /*
-        document.querySelectorAll('.project-card').forEach(card => {
-            const icon = card.querySelector('.expand-icon');
-            const full = card.querySelector('.full-desc');
-            icon.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const expanding = !card.classList.contains('expanded');
-
-                // Ensure transitions are applied cleanly
-                full.style.transition = 'none';
-                if (expanding) {
-                    full.style.maxHeight = '0px';
-                    full.style.opacity = '0';
-                    full.style.transform = 'translateY(-6px)';
-                    requestAnimationFrame(() => {
-                        card.classList.add('expanded');
-                        full.style.transition = 'max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease';
-                        full.style.maxHeight = full.scrollHeight + 'px';
-                        full.style.opacity = '1';
-                        full.style.transform = 'translateY(0)';
-                    });
-                } else {
-                    full.style.transition = 'max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease';
-                    full.style.maxHeight = full.scrollHeight + 'px';
-                    requestAnimationFrame(() => {
-                        card.classList.remove('expanded');
-                        full.style.maxHeight = '0px';
-                        full.style.opacity = '0';
-                        full.style.transform = 'translateY(-6px)';
-                    });
-                }
-            });
         });
-        */
     </script>
 </body>
 </html>
