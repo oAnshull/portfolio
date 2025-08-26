@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- single code block delivery using fenced code best practice -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>oAnshul | Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,21 +15,18 @@
             --neon-purple: #bc13fe;
             --soft-purple: #b79dc5;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
             background-color: var(--dark-bg);
             color: var(--soft-white);
             line-height: 1.6;
             overflow-x: hidden;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -41,23 +38,19 @@
             from { opacity: 0; transform: translateX(-100px); }
             to { opacity: 1; transform: translateX(0); }
         }
-
         @keyframes slideInRight {
             from { opacity: 0; transform: translateX(100px); }
             to { opacity: 1; transform: translateX(0); }
         }
-
         @keyframes slideInUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
-
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -79,12 +72,10 @@
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
-
         .hero-content {
             position: relative;
             z-index: 2;
         }
-
         .hero-content h1 {
             font-size: 4.5rem;
             margin-bottom: 1rem;
@@ -98,7 +89,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             animation: slideInLeft 1s ease-out;
         }
-
         .hero-content p {
             font-size: 1.5rem;
             color: var(--lavender);
@@ -109,7 +99,6 @@
             animation: slideInRight 1s ease-out 0.5s;
             animation-fill-mode: backwards;
         }
-
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
@@ -121,7 +110,6 @@
             animation: slideInUp 1s ease-out 1s;
             animation-fill-mode: backwards;
         }
-
         .btn:hover {
             background: var(--lavender);
             transform: translateY(-3px);
@@ -138,11 +126,9 @@
             transition: transform 0.3s ease;
             z-index: 2;
         }
-
         .scroll-down:hover {
             transform: translateX(-50%) translateY(5px);
         }
-
         .scroll-down span {
             display: block;
             width: 20px;
@@ -158,11 +144,9 @@
             background: var(--dark-bg);
             border-bottom: 1px solid var(--dark-gray);
         }
-
         .about .container {
             max-width: 800px;
         }
-
         .about-content {
             background: var(--dark-gray);
             padding: 2.5rem;
@@ -170,7 +154,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--muted-purple);
         }
-
         h2 {
             font-size: 2.5rem;
             color: var(--muted-purple);
@@ -178,7 +161,6 @@
             text-align: center;
             animation: slideInUp 0.8s ease-out;
         }
-
         .about p {
             font-size: 1.1rem;
             color: var(--lavender);
@@ -190,14 +172,12 @@
         .skills {
             padding: 5rem 0;
         }
-
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-
         .skill-card {
             background: var(--dark-gray);
             padding: 2rem;
@@ -206,18 +186,15 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeIn 1.5s ease-in-out;
         }
-
         .skill-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-
         .skill-card h3 {
             color: var(--muted-purple);
             margin-bottom: 1rem;
             font-weight: 400;
         }
-
         .skill-card p {
             color: var(--lavender);
             font-weight: 300;
@@ -226,42 +203,94 @@
         .projects {
             padding: 5rem 0;
         }
-
         .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            column-count: 1;
+            column-gap: 2rem;
         }
-
         .project-card {
-            background: var(--dark-gray);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+        display: inline-block;
+        width: 100%;
+        margin: 0 0 2rem;
+        break-inside: avoid;
 
+        background: var(--dark-gray);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        animation: fadeIn 1.5s ease-in-out;
+        }
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
         .project-info {
             padding: 1.5rem;
+            position: relative;
         }
-
         .project-info h3 {
             color: var(--muted-purple);
             margin-bottom: 1rem;
             font-weight: 400;
         }
 
-        .project-info p {
-            color: var(--lavender);
-            font-weight: 300;
+        /* Brief vs Full description with smooth animation */
+        .project-info .brief-desc {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        .project-card.expanded .brief-desc {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
         }
 
+        .project-info .full-desc {
+            display: block;            /* keep in flow for height calc */
+            overflow: hidden;          /* hide during animation */
+            max-height: 0;             /* collapsed */
+            opacity: 0;                /* fade effect */
+            transform: translateY(-6px);
+            transition:
+                max-height 0.45s ease,
+                opacity 0.35s ease,
+                transform 0.35s ease;  /* smooth slide-open */
+        }
+        .project-card.expanded .full-desc {
+            max-height: 800px;         /* cap for CSS-only approach */
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* For perfect auto height animation, use JS to set from scrollHeight (optional in script). */
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        .features-list li {
+            color: var(--lavender);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .features-list li:before {
+            content: "▸";
+            color: var(--muted-purple);
+            position: absolute;
+            left: 0;
+        }
+        .tech-stack {
+            margin-top: 1rem;
+        }
         .tech-stack span {
             display: inline-block;
             background: var(--muted-purple);
@@ -269,15 +298,48 @@
             padding: 0.25rem 0.5rem;
             border-radius: 3px;
             margin-right: 0.5rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
             font-weight: 300;
+        }
+        .expand-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: var(--muted-purple);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+        }
+        .expand-icon:hover {
+            background: rgba(176, 164, 227, 0.12);
+        }
+        .project-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        .expand-icon:hover::after {
+            content: 'Click to expand';
+            position: absolute;
+            bottom: 30px;
+            right: 0;
+            background: var(--dark-gray);
+            color: var(--lavender);
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        .project-card.expanded .expand-icon:hover::after {
+            content: 'Click to collapse';
         }
 
         .contact {
             padding: 5rem 0;
             border-top: 1px solid var(--dark-gray);
         }
-
         .contact-container {
             max-width: 800px;
             margin: 0 auto;
@@ -286,21 +348,18 @@
             gap: 3rem;
             padding: 0 2rem;
         }
-
         .contact-info {
             padding: 2rem;
             background: var(--dark-gray);
             border-radius: 10px;
             animation: slideInLeft 0.8s ease-out;
         }
-
         .contact-info-item {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
             color: var(--lavender);
         }
-
         .contact-info-item i {
             font-size: 1.5rem;
             margin-right: 1rem;
@@ -308,24 +367,20 @@
             width: 40px;
             text-align: center;
         }
-
         .contact-form {
             padding: 2rem;
             background: var(--dark-gray);
             border-radius: 10px;
             animation: slideInRight 0.8s ease-out;
         }
-
         .form-group {
             margin-bottom: 1.5rem;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: var(--lavender);
         }
-
         .form-control {
             width: 100%;
             padding: 0.75rem;
@@ -336,29 +391,22 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-
         .form-control:focus {
             outline: none;
             border-color: var(--soft-purple);
             box-shadow: 0 0 8px rgba(176, 164, 227, 0.3);
         }
-
-        /* Add hover effects for links */
         .contact-info-item a {
             color: var(--lavender);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
         .contact-info-item a:hover {
             color: var(--muted-purple);
         }
-
-        /* Adjust spacing for additional items */
         .contact-info {
             padding: 2rem 1.5rem;
         }
-
         .submit-btn {
             display: block;
             width: 100%;
@@ -371,12 +419,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .submit-btn:hover {
             background: var(--soft-purple);
             transform: translateY(-3px);
         }
-
         .form-message {
             margin-top: 1rem;
             padding: 1rem;
@@ -384,12 +430,10 @@
             text-align: center;
             display: none;
         }
-
         .form-message.success {
             background: rgba(46, 125, 50, 0.2);
             color: #81c784;
         }
-
         .form-message.error {
             background: rgba(211, 47, 47, 0.2);
             color: #ef5350;
@@ -399,24 +443,24 @@
             .contact-container {
                 grid-template-columns: 1fr;
             }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .social-links {
             margin-top: 2rem;
         }
-
         .social-links a {
             color: var(--muted-purple);
             font-size: 2rem;
             margin: 0 1rem;
             transition: color 0.3s ease, transform 0.3s ease;
         }
-
         .social-links a:hover {
             color: var(--lavender);
             transform: translateY(-5px);
         }
-
         .about p {
             font-size: 1.1rem;
             color: var(--lavender);
@@ -424,12 +468,10 @@
             line-height: 1.8;
             text-align: left;
         }
-
         .about p strong {
             color: var(--muted-purple);
             font-weight: 500;
         }
-
         .about p span.highlight {
             color: var(--muted-purple);
             font-weight: 500;
@@ -454,7 +496,7 @@
             <div class="about-content">
                 <h2>About Me</h2>
                 <p>
-                    I'm Anshul Deep, an Indian student known online as <strong>oAnshul</strong>. I specialize in <span class="highlight">Python automation</span>, <span class="highlight">low-level DirectX development</span>, <span class="highlight">data management</span>, and <span class="highlight">bot creation</span>.
+                    I'm Anshul Deep, an Indian student known online as <strong>oAnshul</strong>. I specialize in <span class="highlight">Python automation</span>, <span class="highlight">API Integration/Backend Development</span>, <span class="highlight">low-level DirectX development</span>, <span class="highlight">data management</span>, and <span class="highlight">bot creation</span>.
                 </p>
                 <p>
                     I am proficient in <strong>Python</strong>, <strong>C++</strong>, and <strong>C</strong>, while also exploring <strong>Java</strong> and <strong>JavaScript</strong>. I enjoy taking on technical challenges, from <span class="highlight">game hacking</span> to <span class="highlight">automating workflows</span>. My passion lies in constantly learning new technologies and developing solutions that make a difference.
@@ -488,21 +530,65 @@
             <h2>Featured Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
+                    <img src="Flarial.png" alt="Flarial Client Cover">
                     <div class="project-info">
-                        <h3>Coming Soon</h3>
-                        <p>Stay tuned for upcoming projects!</p>
+                        <h3><i class="fas fa-gamepad"></i> Flarial Client (Minecraft Bedrock)</h3>
+                        <p class="brief-desc">A Minecraft Bedrock mod with advanced features via DLL injection.</p>
+                        <div class="full-desc">
+                            <p>A comprehensive Minecraft Bedrock modification that adds extensive quality-of-life features using advanced DLL injection techniques.</p>
+                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
+                            <ul class="features-list">
+                                <li>Setup DirectX 11 and DirectX 12 renderer using ImGui and Direct2D</li>
+                                <li>Developed custom GUI system for stunning client visuals</li>
+                                <li>Reverse engineered Minecraft Bedrock for memory hacking implementation</li>
+                            </ul>
+                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
+                            <ul class="features-list">
+                                <li><strong>Real-time Chat System:</strong> Custom API built with Python enabling in-game messaging</li>
+                                <li><strong>Proximity Voice Chat:</strong> Distance-based voice communication without third-party software</li>
+                                <li><strong>Spotify Integration:</strong> Full music control via Spotify API (play/pause, skip, volume control)</li>
+                                <li><strong>3D Cosmetics Engine:</strong> Custom model parser rendering complex 3D models using game's 2D polygon system</li>
+                                <li><strong>Mouse Strokes Visualizer:</strong> Real-time mouse movement display for content creators</li>
+                                <li><strong>Custom Crosshair Editor:</strong> Built-in image editor with multi-color support and custom brush sizes</li>
+                                <li><strong>Block Outline Customization:</strong> Configurable 2D/3D block outlines with size and color options</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span>C++</span>
+                                <span>DirectX 11/12</span>
+                                <span>ImGui</span>
+                                <span>Direct2D</span>
+                                <span>Python</span>
+                                <span>Spotify API</span>
+                                <span>DLL Injection</span>
+                                <span>Reverse Engineering</span>
+                                <span>Memory Hacking</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down expand-icon" aria-label="Expand project"></i>
                     </div>
                 </div>
+
                 <div class="project-card">
+                    <img src="https://via.placeholder.com/350x200?text=Coming+Soon" alt="Coming Soon Cover">
                     <div class="project-info">
                         <h3>Coming Soon</h3>
-                        <p>Stay tuned for upcoming projects!</p>
+                        <p class="brief-desc">Exciting new project in development!</p>
+                        <div class="full-desc">
+                            <p>Stay tuned for upcoming projects!</p>
+                        </div>
+                        <i class="fas fa-chevron-down expand-icon" aria-label="Expand project"></i>
                     </div>
                 </div>
+
                 <div class="project-card">
+                    <img src="https://via.placeholder.com/350x200?text=Coming+Soon" alt="Coming Soon Cover">
                     <div class="project-info">
                         <h3>Coming Soon</h3>
-                        <p>Stay tuned for upcoming projects!</p>
+                        <p class="brief-desc">Exciting new project in development!</p>
+                        <div class="full-desc">
+                            <p>Stay tuned for upcoming projects!</p>
+                        </div>
+                        <i class="fas fa-chevron-down expand-icon" aria-label="Expand project"></i>
                     </div>
                 </div>
             </div>
@@ -513,7 +599,6 @@
         <div class="container">
             <h2>Get in Touch</h2>
             <div class="contact-container">
-                <!-- Contact Info -->
                 <div class="contact-info">
                     <div class="contact-info-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -552,7 +637,6 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -574,12 +658,14 @@
     </section>
 
     <script>
+        // Smooth scroll to About
         document.getElementById('scrollDownBtn').addEventListener('click', function() {
             document.querySelector('#about').scrollIntoView({
                 behavior: 'smooth'
             });
-        });
+        }); // smooth anchor scrolling
 
+        // Smooth scroll for internal anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -587,15 +673,13 @@
                     behavior: 'smooth'
                 });
             });
-        });
+        }); // smooth anchor scrolling
 
         // Form submission handling
         const form = document.querySelector('.contact-form');
         const formMessage = document.querySelector('.form-message');
-
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const formData = new FormData(form);
             const response = await fetch(form.action, {
                 method: 'POST',
@@ -604,10 +688,10 @@
                     'Accept': 'application/json'
                 }
             });
-
             if (response.ok) {
                 form.reset();
                 formMessage.style.display = 'block';
+                formMessage.classList.remove('error');
                 formMessage.classList.add('success');
                 formMessage.textContent = 'Message sent successfully! 🚀';
                 setTimeout(() => {
@@ -615,10 +699,58 @@
                 }, 5000);
             } else {
                 formMessage.style.display = 'block';
+                formMessage.classList.remove('success');
                 formMessage.classList.add('error');
                 formMessage.textContent = 'Oops! Something went wrong. Please try again.';
             }
+        }); // basic fetch handling
+
+        // Project card expand/collapse with isolated toggling via chevron
+        document.querySelectorAll('.project-card').forEach(card => {
+            const expandIcon = card.querySelector('.expand-icon');
+            if (!expandIcon) return;
+            expandIcon.addEventListener('click', function (e) {
+                e.stopPropagation(); // prevent bubbling to parent containers
+                card.classList.toggle('expanded');
+            });
+        }); // isolated per-card expansion
+
+        // Optional: perfect auto-height animation (uncomment to use)
+        // This replaces the CSS max-height cap by using scrollHeight.
+        /*
+        document.querySelectorAll('.project-card').forEach(card => {
+            const icon = card.querySelector('.expand-icon');
+            const full = card.querySelector('.full-desc');
+            icon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const expanding = !card.classList.contains('expanded');
+
+                // Ensure transitions are applied cleanly
+                full.style.transition = 'none';
+                if (expanding) {
+                    full.style.maxHeight = '0px';
+                    full.style.opacity = '0';
+                    full.style.transform = 'translateY(-6px)';
+                    requestAnimationFrame(() => {
+                        card.classList.add('expanded');
+                        full.style.transition = 'max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease';
+                        full.style.maxHeight = full.scrollHeight + 'px';
+                        full.style.opacity = '1';
+                        full.style.transform = 'translateY(0)';
+                    });
+                } else {
+                    full.style.transition = 'max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease';
+                    full.style.maxHeight = full.scrollHeight + 'px';
+                    requestAnimationFrame(() => {
+                        card.classList.remove('expanded');
+                        full.style.maxHeight = '0px';
+                        full.style.opacity = '0';
+                        full.style.transform = 'translateY(-6px)';
+                    });
+                }
+            });
         });
+        */
     </script>
 </body>
 </html>
