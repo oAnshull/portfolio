@@ -113,7 +113,7 @@
         }
         @keyframes gradientText {
             0% {
-        background-position: 0% 50%;
+                background-position: 0% 50%;
             }
             100% {
                 background-position: 100% 50%;
@@ -438,6 +438,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             padding: 0 2rem;
+            width: 100%; /* Ensure full width */
         }
         .contact-info {
             padding: 2rem;
@@ -533,9 +534,16 @@
         @media (max-width: 768px) {
             .contact-container {
                 grid-template-columns: 1fr;
+                padding: 0 1rem;
+                width: 100%;
+                margin: 0 auto;
             }
             .project-grid {
                 grid-template-columns: 1fr;
+            }
+            .contact-info, .contact-form {
+                width: 100%;
+                margin: 0 auto;
             }
         }
 
@@ -843,5 +851,4 @@
         });
     </script>
 </body>
-
 </html>
