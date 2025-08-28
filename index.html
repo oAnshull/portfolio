@@ -7,13 +7,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --dark-bg: #1a1a1a;
-            --dark-gray: #2a2a2a;
-            --lavender: #e6e6fa;
-            --muted-purple: #b0a4e3;
-            --soft-white: #f5f5f5;
-            --neon-purple: #bc13fe;
-            --soft-purple: #b79dc5;
+            /* hsl (fallback color) */
+            --bg-dark: hsl(244 52% 2%);
+            --bg: hsl(243 32% 6%);
+            --bg-light: hsl(242 19% 10%);
+            --text: hsl(240 100% 99%);
+            --text-muted: hsl(241 21% 74%);
+            --highlight: hsl(241 12% 43%);
+            --border: hsl(242 15% 32%);
+            --border-muted: hsl(243 21% 21%);
+            --primary: hsl(270 68% 60%);
+            --secondary: hsl(57 37% 57%);
+            --danger: hsl(9 26% 64%);
+            --warning: hsl(52 19% 57%);
+            --success: hsl(146 17% 59%);
+            --info: hsl(217 28% 65%);
+            /* oklch */
+            --bg-dark: oklch(0.1 0.02 286);
+            --bg: oklch(0.15 0.02 286);
+            --bg-light: oklch(0.2 0.02 286);
+            --text: oklch(0.96 0.04 286);
+            --text-muted: oklch(0.76 0.04 280);
+            --highlight: oklch(0.5 0.04 286);
+            --border: oklch(0.4 0.04 286);
+            --border-muted: oklch(0.3 0.04 286);
+            --primary: oklch(0.75 0.15 285);
+            --secondary: oklch(0.76 0.1 106);
+            --danger: oklch(0.7 0.05 30);
+            --warning: oklch(0.7 0.05 100);
+            --success: oklch(0.7 0.05 160);
+            --info: oklch(0.7 0.05 260);
+        }
+        body.light {
+            /* hsl (fallback color) */
+            --bg-dark: hsl(240 36% 92%);
+            --bg: hsl(240 100% 97%);
+            --bg-light: hsl(240 100% 100%);
+            --text: hsl(247 55% 7%);
+            --text-muted: hsl(242 15% 32%);
+            --highlight: hsl(240 100% 100%);
+            --border: hsl(241 11% 54%);
+            --border-muted: hsl(241 16% 66%);
+            --primary: hsl(270 33% 40%);
+            --secondary: hsl(57 100% 11%);
+            --danger: hsl(9 21% 41%);
+            --warning: hsl(52 23% 34%);
+            --success: hsl(147 19% 36%);
+            --info: hsl(217 22% 41%);
+            /* oklch */
+            --bg-dark: oklch(0.92 0.02 286);
+            --bg: oklch(0.96 0.02 286);
+            --bg-light: oklch(1 0.02 286);
+            --text: oklch(0.15 0.04 286);
+            --text-muted: oklch(0.4 0.04 286);
+            --highlight: oklch(1 0.04 286);
+            --border: oklch(0.6 0.04 286);
+            --border-muted: oklch(0.7 0.04 286);
+            --primary: oklch(0.55 0.15 285);
+            --secondary: oklch(0.4 0.1 106);
+            --danger: oklch(0.5 0.05 30);
+            --warning: oklch(0.5 0.05 100);
+            --success: oklch(0.5 0.05 160);
+            --info: oklch(0.5 0.05 260);
         }
         * {
             margin: 0;
@@ -22,8 +77,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: var(--dark-bg);
-            color: var(--soft-white);
+            background-color: var(--bg-dark);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -56,6 +111,14 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        @keyframes gradientText {
+            0% {
+        background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
 
         /* Hero Section */
         .hero {
@@ -65,9 +128,9 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(45deg, 
-                var(--dark-bg),
-                var(--dark-gray),
-                var(--dark-bg)
+                var(--bg-dark),
+                var(--bg),
+                var(--bg-dark)
             );
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
@@ -79,19 +142,22 @@
         .hero-content h1 {
             font-size: 4.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, 
-                var(--muted-purple), 
-                var(--lavender)
+            background: linear-gradient(
+                to right,
+                #7953cd 20%,
+                #5300fa 30%,
+                #9501e4 70%,
+                #6323f9 80%
             );
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInLeft 1s ease-out;
+            background-size: 500% auto;
+            animation: gradientText 5s ease-in-out infinite alternate;
         }
         .hero-content p {
             font-size: 1.5rem;
-            color: var(--lavender);
+            color: var(--text-muted);
             margin-bottom: 2rem;
             font-weight: 300;
             max-width: 600px;
@@ -102,8 +168,8 @@
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
-            background: var(--muted-purple);
-            color: var(--soft-white);
+            background: var(--primary);
+            color: var(--text);
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s ease, transform 0.3s ease;
@@ -111,7 +177,7 @@
             animation-fill-mode: backwards;
         }
         .btn:hover {
-            background: var(--lavender);
+            background: var(--secondary);
             transform: translateY(-3px);
         }
 
@@ -133,40 +199,67 @@
             display: block;
             width: 20px;
             height: 20px;
-            border-bottom: 2px solid var(--muted-purple);
-            border-right: 2px solid var(--muted-purple);
+            border-bottom: 2px solid var(--primary);
+            border-right: 2px solid var(--primary);
             transform: rotate(45deg);
             margin: -10px;
         }
 
         .about {
             padding: 5rem 0;
-            background: var(--dark-bg);
-            border-bottom: 1px solid var(--dark-gray);
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--border-muted);
         }
         .about .container {
-            max-width: 800px;
+            max-width: 1200px;
         }
         .about-content {
-            background: var(--dark-gray);
+            background: var(--bg);
             padding: 2.5rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--muted-purple);
+            border: 1px solid var(--border);
         }
         h2 {
             font-size: 2.5rem;
-            color: var(--muted-purple);
+            color: var(--primary);
             margin-bottom: 3rem;
             text-align: center;
             animation: slideInUp 0.8s ease-out;
         }
         .about p {
             font-size: 1.1rem;
-            color: var(--lavender);
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
             line-height: 1.8;
             text-align: left;
+        }
+        .about ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        .about ul li {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .about ul li:before {
+            content: "▸";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+        .about p strong {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .about p span.highlight {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: underline;
         }
 
         .skills {
@@ -179,7 +272,7 @@
             margin-top: 3rem;
         }
         .skill-card {
-            background: var(--dark-gray);
+            background: var(--bg);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -191,12 +284,12 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         .skill-card h3 {
-            color: var(--muted-purple);
+            color: var(--primary);
             margin-bottom: 1rem;
             font-weight: 400;
         }
         .skill-card p {
-            color: var(--lavender);
+            color: var(--text-muted);
             font-weight: 300;
         }
 
@@ -212,7 +305,7 @@
             width: 100%;
             margin: 0 0 2rem;
             break-inside: avoid;
-            background: var(--dark-gray);
+            background: var(--bg);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -235,7 +328,7 @@
             position: relative;
         }
         .project-info h3 {
-            color: var(--muted-purple);
+            color: var(--primary);
             margin-bottom: 1rem;
             font-weight: 400;
         }
@@ -274,7 +367,7 @@
             margin: 1rem 0;
         }
         .features-list li {
-            color: var(--lavender);
+            color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
             padding-left: 1rem;
@@ -282,7 +375,7 @@
         }
         .features-list li:before {
             content: "▸";
-            color: var(--muted-purple);
+            color: var(--primary);
             position: absolute;
             left: 0;
         }
@@ -291,8 +384,8 @@
         }
         .tech-stack span {
             display: inline-block;
-            background: var(--muted-purple);
-            color: var(--soft-white);
+            background: var(--primary);
+            color: var(--text);
             padding: 0.25rem 0.5rem;
             border-radius: 3px;
             margin-right: 0.5rem;
@@ -304,7 +397,7 @@
             position: absolute;
             bottom: 10px;
             right: 10px;
-            color: var(--muted-purple);
+            color: var(--primary);
             font-size: 1.5rem;
             transition: transform 0.3s ease;
             cursor: pointer;
@@ -312,7 +405,7 @@
             border-radius: 6px;
         }
         .expand-icon:hover {
-            background: rgba(176, 164, 227, 0.12);
+            background: var(--border-muted);
         }
         .project-card.expanded .expand-icon {
             transform: rotate(180deg);
@@ -322,8 +415,8 @@
             position: absolute;
             bottom: 30px;
             right: 0;
-            background: var(--dark-gray);
-            color: var(--lavender);
+            background: var(--bg);
+            color: var(--text-muted);
             padding: 0.5rem;
             border-radius: 5px;
             font-size: 0.8rem;
@@ -336,10 +429,10 @@
 
         .contact {
             padding: 5rem 0;
-            border-top: 1px solid var(--dark-gray);
+            border-top: 1px solid var(--border-muted);
         }
         .contact-container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -348,7 +441,7 @@
         }
         .contact-info {
             padding: 2rem;
-            background: var(--dark-gray);
+            background: var(--bg);
             border-radius: 10px;
             animation: slideInLeft 0.8s ease-out;
         }
@@ -356,18 +449,18 @@
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
-            color: var(--lavender);
+            color: var(--text-muted);
         }
         .contact-info-item i {
             font-size: 1.5rem;
             margin-right: 1rem;
-            color: var(--muted-purple);
+            color: var(--primary);
             width: 40px;
             text-align: center;
         }
         .contact-form {
             padding: 2rem;
-            background: var(--dark-gray);
+            background: var(--bg);
             border-radius: 10px;
             animation: slideInRight 0.8s ease-out;
         }
@@ -377,30 +470,30 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--lavender);
+            color: var(--text-muted);
         }
         .form-control {
             width: 100%;
             padding: 0.75rem;
-            border: 2px solid var(--muted-purple);
+            border: 2px solid var(--border);
             border-radius: 5px;
-            background: var(--dark-bg);
-            color: var(--lavender);
+            background: var(--bg-dark);
+            color: var(--text-muted);
             font-size: 1rem;
             transition: all 0.3s ease;
         }
         .form-control:focus {
             outline: none;
-            border-color: var(--soft-purple);
+            border-color: var(--primary);
             box-shadow: 0 0 8px rgba(176, 164, 227, 0.3);
         }
         .contact-info-item a {
-            color: var(--lavender);
+            color: var(--text-muted);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         .contact-info-item a:hover {
-            color: var(--muted-purple);
+            color: var(--primary);
         }
         .contact-info {
             padding: 2rem 1.5rem;
@@ -409,8 +502,8 @@
             display: block;
             width: 100%;
             padding: 1rem;
-            background: var(--muted-purple);
-            color: var(--soft-white);
+            background: var(--primary);
+            color: var(--text);
             border: none;
             border-radius: 5px;
             font-size: 1.1rem;
@@ -418,7 +511,7 @@
             transition: all 0.3s ease;
         }
         .submit-btn:hover {
-            background: var(--soft-purple);
+            background: var(--secondary);
             transform: translateY(-3px);
         }
         .form-message {
@@ -429,12 +522,12 @@
             display: none;
         }
         .form-message.success {
-            background: rgba(46, 125, 50, 0.2);
-            color: #81c784;
+            background: var(--success);
+            color: var(--text);
         }
         .form-message.error {
-            background: rgba(211, 47, 47, 0.2);
-            color: #ef5350;
+            background: var(--danger);
+            color: var(--text);
         }
 
         @media (max-width: 768px) {
@@ -450,30 +543,14 @@
             margin-top: 2rem;
         }
         .social-links a {
-            color: var(--muted-purple);
+            color: var(--primary);
             font-size: 2rem;
             margin: 0 1rem;
             transition: color 0.3s ease, transform 0.3s ease;
         }
         .social-links a:hover {
-            color: var(--lavender);
+            color: var(--secondary);
             transform: translateY(-5px);
-        }
-        .about p {
-            font-size: 1.1rem;
-            color: var(--lavender);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            text-align: left;
-        }
-        .about p strong {
-            color: var(--muted-purple);
-            font-weight: 500;
-        }
-        .about p span.highlight {
-            color: var(--muted-purple);
-            font-weight: 500;
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -494,11 +571,23 @@
             <div class="about-content">
                 <h2>About Me</h2>
                 <p>
-                    I'm Anshul Deep, an Indian student known online as <strong>oAnshul</strong>. I specialize in <span class="highlight">Python automation</span>, <span class="highlight">API Integration/Backend Development</span>, <span class="highlight">low-level DirectX development</span>, <span class="highlight">data management</span>, and <span class="highlight">bot creation</span>.
+                    I'm Anshul Deep, an Indian student known online as <strong>oAnshul</strong>. My passion lies in tackling technical challenges and developing innovative solutions through constant learning and exploration of new technologies.
                 </p>
-                <p>
-                    I am proficient in <strong>Python</strong>, <strong>C++</strong>, and <strong>C</strong>, while also exploring <strong>Java</strong> and <strong>JavaScript</strong>. I enjoy taking on technical challenges, from <span class="highlight">game hacking</span> to <span class="highlight">automating workflows</span>. My passion lies in constantly learning new technologies and developing solutions that make a difference.
-                </p>
+                <h3 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1.2rem;">Specializations:</h3>
+                <ul>
+                    <li>Python automation</li>
+                    <li>API Integration & Backend Development</li>
+                    <li>Low-level DirectX development</li>
+                    <li>Data management</li>
+                    <li>Bot creation</li>
+                    <li>Game hacking</li>
+                    <li>Automating workflows</li>
+                </ul>
+                <h3 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1.2rem;">Programming Skills:</h3>
+                <ul>
+                    <li><strong>Proficient:</strong> Python, C++, C</li>
+                    <li><strong>Exploring:</strong> Java, JavaScript</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -534,13 +623,13 @@
                         <p class="brief-desc">A Minecraft Bedrock mod with advanced features via DLL injection.</p>
                         <div class="full-desc">
                             <p>A comprehensive Minecraft Bedrock modification that adds extensive quality-of-life features using advanced DLL injection techniques.</p>
-                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
+                            <h4 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
                             <ul class="features-list">
                                 <li>Setup DirectX 11 and DirectX 12 renderer using ImGui and Direct2D</li>
                                 <li>Developed custom GUI system for stunning client visuals</li>
                                 <li>Reverse engineered Minecraft Bedrock for memory hacking implementation</li>
                             </ul>
-                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
+                            <h4 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
                             <ul class="features-list">
                                 <li><strong>Real-time Chat System:</strong> Custom API built with Python enabling in-game messaging</li>
                                 <li><strong>Proximity Voice Chat:</strong> Distance-based voice communication without third-party software</li>
@@ -573,13 +662,13 @@
                         <p class="brief-desc">A verified Discord bot for tracking Minecraft player stats on NetherGames.</p>
                         <div class="full-desc">
                             <p>NetherGames Tracker is a verified Discord bot used by over 300 servers, designed to fetch and track player statistics from the NetherGames Minecraft server using its API. It provides real-time stats and unique tracking features for daily and weekly performance.</p>
-                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
+                            <h4 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
                             <ul class="features-list">
                                 <li>Integrated NetherGames API for real-time player stats retrieval</li>
                                 <li>Developed database architecture using MongoDB for stat tracking</li>
                                 <li>Implemented efficient data storage and retrieval for historical stats</li>
                             </ul>
-                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
+                            <h4 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
                             <ul class="features-list">
                                 <li><strong>Real-time Stats:</strong> Fetches player stats like kills, wins, and more via NetherGames API</li>
                                 <li><strong>Stat Tracking:</strong> Stores and tracks player stats over time for daily/weekly analysis</li>
@@ -605,13 +694,13 @@
                         <p class="brief-desc">A verified Discord bot for managing NetherGames guilds with advanced features.</p>
                         <div class="full-desc">
                             <p>NGGM or NetherGames Guild Manager is another verified Discord bot with over 100 servers, acting as a successor to NetherGames Tracker with more intricate features. Unlike its predecessor, NGGM tracks an entire guild of players rather than just one, offering advanced management tools not available in the Minecraft server itself.</p>
-                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
+                            <h4 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Core Technical Contributions:</h4>
                             <ul class="features-list">
                                 <li>Enhanced NetherGames API integration for guild-wide stat tracking</li>
                                 <li>Designed a robust MongoDB schema for guild and player data management</li>
                                 <li>Mastered API integration techniques through this project</li>
                             </ul>
-                            <h4 style="color: var(--muted-purple); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
+                            <h4 style="color: var(--primary); margin: 1rem 0 0.5rem 0; font-size: 1rem;">Major Features Developed:</h4>
                             <ul class="features-list">
                                 <li><strong>Guild Management:</strong> Kick, invite, or promote guild members</li>
                                 <li><strong>Advanced Bans:</strong> Complete ban from joining a guild with a strike system</li>
