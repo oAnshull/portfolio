@@ -37,6 +37,8 @@
             --warning: oklch(0.7 0.05 100);
             --success: oklch(0.7 0.05 160);
             --info: oklch(0.7 0.05 260);
+
+            --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
         }
         body.light {
             /* hsl (fallback color) */
@@ -284,6 +286,7 @@
         .skill-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background: var(--gradient-hover);
         }
         .skill-card h3 {
             color: var(--primary);
@@ -319,6 +322,7 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background: var(--gradient-hover);
         }
         .project-card img {
             width: 100%;
