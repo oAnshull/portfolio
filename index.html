@@ -71,6 +71,8 @@
             --warning: oklch(0.5 0.05 100);
             --success: oklch(0.5 0.05 160);
             --info: oklch(0.5 0.05 260);
+
+            --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
         }
         * {
             margin: 0;
@@ -182,6 +184,45 @@
         .btn:hover {
             background: var(--secondary);
             transform: translateY(-3px);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 3;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        .theme-toggle:hover {
+            background: var(--border-muted);
+            transform: scale(1.1);
+        }
+        .theme-toggle:hover::after {
+            content: 'Toggle Theme';
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--bg);
+            color: var(--text-muted);
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 10;
         }
 
         /* Scroll Down Indicator */
@@ -579,6 +620,9 @@
             <p>@oAnshul | Developer & Reverse Engineer</p>
             <a href="#about" class="btn">Learn More About Me</a>
         </div>
+        <div class="theme-toggle" id="themeToggle" title="Toggle Theme">
+            <i class="fas fa-adjust"></i>
+        </div>
         <div class="scroll-down" id="scrollDownBtn">
             <span></span>
         </div>
@@ -803,6 +847,46 @@
     </section>
 
     <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check system preference and apply theme
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkScheme) {
+            body.classList.remove('light');
+        } else {
+            body.classList.add('light');
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light');
+            // Update icon based on theme
+            const isLight = body.classList.contains('light');
+            themeToggle.querySelector('i').className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+            // Save preference to localStorage
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+
+        // Load saved theme preference if exists
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.toggle('light', savedTheme === 'light');
+            themeToggle.querySelector('i').className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        } else {
+            // Set initial icon based on system preference
+            themeToggle.querySelector('i').className = prefersDarkScheme ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                body.classList.toggle('light', !e.matches);
+                themeToggle.querySelector('i').className = e.matches ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        });
+
         // Smooth scroll to About
         document.getElementById('scrollDownBtn').addEventListener('click', function() {
             document.querySelector('#about').scrollIntoView({
