@@ -17,10 +17,10 @@
             "imageTag": "AvailableGameBedwars"
         },
         {
-            "title": "SkyWars",
-            "subtitle": "Solos, Duos, 1v1 and 2v2",
-            "description": "Gather Loot from islands. Kill everyone to win!",
-            "imageTag": "AvailableGameSkywars"
+            "title": "TheBridge",
+            "subtitle": "Solos and Duos",
+            "description": "Defend your goal and try to get inside enemy's goal!",
+            "imageTag": "AvailableGameTheBride"
         }
     ],
     "images":[
@@ -44,9 +44,9 @@
         },
         {
             "id": "b0f47e38-341b-46e6-9d91-e3f29b640b4d",
-            "tag": "AvailableGameSkywars",
+            "tag": "AvailableGameTheBride",
             "type": "Screenshot",
-            "url": "http://oanshul.in/SkywarsNG.png"
+            "url": "http://oanshul.in/TheBridgeNG.png"
         }
     ]
 }
