@@ -1,0 +1,52 @@
+{
+    "name": "NetherGames", 
+    "ip": "play.nethergames.org",
+    "whitelistUrl" : "*.nethergames.org",
+    "port": 19132,
+    "id": "3698b24a-74cb-4882-b682-1da9bc043d4d",
+    "description": "Play NetherGames with everyone!",
+    "news":{
+        "title": "Flarial x NetherGames",
+        "news": "Partnership with Flarial is now live! join NetherGames to see the new Flarial Cosmetics!"
+    },
+    "availableGames":[
+        {
+            "title": "Bedwars",
+            "subtitle": "Solos, Duos and Squads",
+            "description": "Protect your bed and destroy others! Be the last one standing",
+            "imageTag": "AvailableGameBedwars"
+        },
+        {
+            "title": "SkyWars",
+            "subtitle": "Solos, Duos, 1v1 and 2v2",
+            "description": "Gather Loot from islands. Kill everyone to win!",
+            "imageTag": "AvailableGameSkywars"
+        }
+    ],
+    "images":[
+        {
+            "id": "f73eb2bb-d40e-4dfa-9abd-097efc3694c8",
+            "tag": "Thumbnail",
+            "type": "Thumbnail",
+            "url": "http://oanshul.in/NetherGames.png"
+        },
+        {
+            "id": "b0f47e38-221b-46e6-9d91-e3f29b150b1d",
+            "tag": "Banner",
+            "type": "Screenshot",
+            "url": "http://oanshul.in/NetherGames_Banner.png"
+        },
+        {
+            "id": "b0f47e38-341b-46e6-9d91-e3f29b150b1d",
+            "tag": "AvailableGameBedwars",
+            "type": "Screenshot",
+            "url": "http://oanshul.in/BedwarsNG.png"
+        },
+        {
+            "id": "b0f47e38-341b-46e6-9d91-e3f29b640b4d",
+            "tag": "AvailableGameSkywars",
+            "type": "Screenshot",
+            "url": "http://oanshul.in/SkywarsNG.png"
+        }
+    ]
+}
