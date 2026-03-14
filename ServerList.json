@@ -1,3 +1,6 @@
 [
-  "https://oanshul.in/NetherGamesServer.json"
+  {
+    "name": "NetherGames",
+    "endpoint": "https://oanshul.in/NetherGamesServer.json"
+  }
 ]
