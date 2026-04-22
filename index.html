@@ -37,57 +37,48 @@
     overflow-x: hidden;
     cursor: none;
   }
+  a, button, input, textarea, select, label, summary, [role="button"] {
+    cursor: none !important;
+  }
 
   /* CUSTOM CURSOR */
   #cursor {
     position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
-    width: 12px; height: 12px;
-    background: radial-gradient(circle at 35% 35%, var(--gold-bright), var(--gold) 58%, rgba(201,168,76,0.35) 100%);
-    border: 1px solid rgba(240,201,107,0.35);
-    border-radius: 2px;
-    transform: translate(-50%, -50%);
-    transition: transform 0.14s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease, border-radius 0.2s ease, box-shadow 0.2s ease;
+    width: 24px; height: 36px;
+    background: no-repeat center / contain url("cursor.png");
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    transition: transform 0.16s ease, opacity 0.2s ease, filter 0.2s ease;
     mix-blend-mode: normal;
-    box-shadow: 0 0 18px rgba(201,168,76,0.45);
+    filter: drop-shadow(0 0 8px rgba(201,168,76,0.22)) drop-shadow(0 1px 1px rgba(0,0,0,0.45));
   }
   #cursor::after {
-    content: '';
-    position: absolute; inset: -8px;
-    border: 1px solid rgba(201,168,76,0.16);
-    border-radius: 4px;
-    opacity: 0.7;
+    content: none;
   }
   #cursor-ring {
     position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
-    width: 42px; height: 42px;
-    border: 1px solid rgba(201,168,76,0.24);
-    border-radius: 14px;
+    width: 28px; height: 28px;
+    border: 1px solid rgba(201,168,76,0.14);
+    border-radius: 50%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 38%, transparent 72%);
-    backdrop-filter: blur(2px);
-    transition: transform 0.18s ease, width 0.24s ease, height 0.24s ease, border-color 0.2s ease, border-radius 0.24s ease, background 0.24s ease, opacity 0.2s ease;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, rgba(201,168,76,0.018) 45%, transparent 72%);
+    transition: transform 0.18s ease, width 0.22s ease, height 0.22s ease, border-color 0.2s ease, opacity 0.2s ease, background 0.2s ease;
   }
   body:hover #cursor { opacity: 1; }
   body.cursor-active #cursor {
-    width: 8px; height: 8px; border-radius: 50%;
-    box-shadow: 0 0 24px rgba(201,168,76,0.65);
-  }
-  body.cursor-active #cursor::after {
-    inset: -14px;
-    border-color: rgba(201,168,76,0.22);
-    border-radius: 999px;
+    transform: translate(0, 0) scale(1.06);
+    filter: drop-shadow(0 0 10px rgba(201,168,76,0.32)) drop-shadow(0 1px 1px rgba(0,0,0,0.45));
   }
   body.cursor-active #cursor-ring {
-    width: 64px; height: 64px;
-    border-radius: 20px;
-    border-color: rgba(201,168,76,0.55);
-    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.05) 45%, transparent 75%);
+    width: 38px; height: 38px;
+    border-color: rgba(201,168,76,0.26);
+    background: radial-gradient(circle, rgba(201,168,76,0.09) 0%, rgba(201,168,76,0.03) 45%, transparent 74%);
   }
   body.cursor-pressed #cursor {
-    transform: translate(-50%, -50%) scale(0.82);
+    transform: translate(0, 0) scale(0.94);
   }
   body.cursor-pressed #cursor-ring {
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.88);
   }
 
   /* CANVAS */
@@ -318,14 +309,14 @@
     transition: background 0.25s;
     position: relative; overflow: hidden;
   }
-  .project-card::before {
+  .project-card::after {
     content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(to right, var(--gold), transparent);
-    opacity: 0; transition: opacity 0.3s;
+    position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.35s ease;
   }
-  .project-card:hover { background: #131310; }
-  .project-card:hover::before { opacity: 1; }
+  .project-card:hover { background: var(--bg3); }
+  .project-card:hover::after { width: 100%; }
   .project-num {
     font-family: var(--mono); font-size: 0.65rem; color: var(--text-muted);
     letter-spacing: 0.2em; margin-bottom: 1.5rem;
@@ -454,6 +445,7 @@
 
   @media (max-width: 768px) {
     body { cursor: auto; }
+    a, button, input, textarea, select, label, summary, [role="button"] { cursor: auto !important; }
     #cursor, #cursor-ring { display: none; }
     .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     .hero-title { font-size: clamp(2.8rem, 12vw, 4.5rem); }
@@ -540,7 +532,7 @@
         <p>I also use agentic coding tools and MCP-based workflows to speed up research, implementation, debugging, and repetitive engineering tasks without losing sight of the underlying system.</p>
         <div class="about-stats">
           <div class="stat-card reveal">
-            <div class="stat-num">3+</div>
+            <div class="stat-num">5+</div>
             <div class="stat-label">Years experience</div>
           </div>
           <div class="stat-card reveal reveal-delay-1">
@@ -694,7 +686,7 @@
 <section id="projects">
   <div class="container">
     <p class="section-label reveal" data-n="04">Projects</p>
-    <h2 class="section-title reveal reveal-delay-1">Selected projects.</h2>
+    <h2 class="section-title reveal reveal-delay-1">Featured projects.</h2>
     <div class="projects-grid">
       <div class="project-card reveal">
         <div class="project-num">01</div>
@@ -815,7 +807,7 @@
 <footer>
   <div class="footer-inner">
     <span class="footer-copy">© 2025 Anshul — <span class="footer-gold">oanshul.in</span></span>
-    <span class="footer-copy">Designed & built by hand.</span>
+    <span class="footer-copy">Designed and developed with modern tools.</span>
   </div>
 </footer>
 
@@ -824,21 +816,12 @@
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
 let mx = -100, my = -100, rx = -100, ry = -100;
-let lastMx = -100, lastMy = -100;
 document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 function animateCursor() {
-  rx += (mx - rx) * 0.15;
-  ry += (my - ry) * 0.15;
-  const dx = mx - lastMx;
-  const dy = my - lastMy;
-  const speed = Math.min(Math.hypot(dx, dy), 24);
-  const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+  rx += (mx - rx) * 0.18;
+  ry += (my - ry) * 0.18;
   cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
   cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
-  cursor.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scale(${1 + speed * 0.012})`;
-  cursorRing.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scale(${1 + speed * 0.005})`;
-  lastMx = mx;
-  lastMy = my;
   requestAnimationFrame(animateCursor);
 }
 animateCursor();
@@ -881,34 +864,29 @@ const canvas = document.getElementById('field-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, particles = [], mouseX = -1000, mouseY = -1000;
 let mouseActive = false;
-let explosions = [];
+const isMobileField = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
 
 function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
+  const dpr = isMobileField ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = Math.floor(W * dpr);
+  canvas.height = Math.floor(H * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 resize();
 window.addEventListener('resize', resize);
 document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 document.addEventListener('mousemove', () => { mouseActive = true; });
 document.addEventListener('mouseleave', () => { mouseActive = false; });
-document.addEventListener('mousedown', e => {
-  if (e.button !== 0) return;
-  explosions.push({
-    x: e.clientX,
-    y: e.clientY,
-    radius: 240,
-    force: 1.35,
-    createdAt: performance.now()
-  });
-  if (explosions.length > 10) explosions.shift();
-});
 
 // Create a grid of particles
 function initParticles() {
   particles = [];
-  const cols = Math.floor(W / 55);
-  const rows = Math.floor(H / 55);
+  const spacing = isMobileField ? 82 : 55;
+  const looseCount = isMobileField ? 28 : 120;
+  const cols = Math.max(1, Math.floor(W / spacing));
+  const rows = Math.max(1, Math.floor(H / spacing));
   const spacingX = W / cols;
   const spacingY = H / rows;
   for (let r = 0; r <= rows; r++) {
@@ -928,7 +906,7 @@ function initParticles() {
     }
   }
   // Also scatter some extra loose particles
-  for (let i = 0; i < 120; i++) {
+  for (let i = 0; i < looseCount; i++) {
       particles.push({
         ox: Math.random() * W, oy: Math.random() * H,
         x: 0, y: 0, vx: 0, vy: 0,
@@ -952,91 +930,27 @@ const MAX_DIST = 90;
 function drawFrame() {
   ctx.clearRect(0, 0, W, H);
   const now = performance.now();
-  const interactRadius = 110;
-  const stainRadius = 120;
-
-  explosions = explosions.filter(explosion => now - explosion.createdAt < 900);
-
-  explosions.forEach(explosion => {
-    const age = now - explosion.createdAt;
-    const progress = age / 900;
-    const ringRadius = explosion.radius * progress;
-    const alpha = Math.max(0, 0.28 * (1 - progress));
-
-    ctx.beginPath();
-    ctx.arc(explosion.x, explosion.y, ringRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(240,201,107,${alpha})`;
-    ctx.lineWidth = 1.6;
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.arc(explosion.x, explosion.y, ringRadius * 0.35, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(201,168,76,${alpha * 0.16})`;
-    ctx.fill();
-  });
+  const stainRadius = isMobileField ? 0 : 120;
 
   // Update positions
   particles.forEach(p => {
     const driftTime = now * 0.001;
-    const baseX = p.ox + p.stainX;
-    const baseY = p.oy + p.stainY;
     const mdx = mouseX - p.x;
     const mdy = mouseY - p.y;
     const mdist = Math.hypot(mdx, mdy);
 
-    if (mouseActive && mdist < stainRadius && mdist > 14) {
+    if (!isMobileField && mouseActive && mdist < stainRadius && mdist > 14) {
       const stainForce = Math.pow(1 - mdist / stainRadius, 2);
       p.stain = Math.min(1.9, p.stain + 0.04 + stainForce * 0.07);
-      p.stainX += (mdx / Math.max(mdist, 1)) * stainForce * 1.55;
-      p.stainY += (mdy / Math.max(mdist, 1)) * stainForce * 1.55;
-      const stainShift = Math.hypot(p.stainX, p.stainY);
-      const maxShift = p.loose ? 90 : 64;
-      if (stainShift > maxShift) {
-        const ratio = maxShift / stainShift;
-        p.stainX *= ratio;
-        p.stainY *= ratio;
-      }
     }
 
-    explosions.forEach(explosion => {
-      const ex = p.x - explosion.x;
-      const ey = p.y - explosion.y;
-      const edist = Math.hypot(ex, ey);
-      if (edist < explosion.radius) {
-        const blast = Math.pow(1 - edist / explosion.radius, 2) * explosion.force;
-        const nx = ex / Math.max(edist, 1);
-        const ny = ey / Math.max(edist, 1);
-        p.stain = Math.min(2.4, p.stain + blast * 0.09);
-        p.stainX += nx * blast * (p.loose ? 18 : 26);
-        p.stainY += ny * blast * (p.loose ? 18 : 26);
-        p.x += nx * blast * (p.loose ? 12 : 16);
-        p.y += ny * blast * (p.loose ? 12 : 16);
-      }
-    });
-
     p.stain *= p.loose ? 0.99988 : 0.9998;
-    p.stainX *= p.loose ? 0.99992 : 0.99985;
-    p.stainY *= p.loose ? 0.99992 : 0.99985;
 
-    const homeX = baseX + Math.sin(driftTime * (p.loose ? 0.8 : 0.55) + p.ox * 0.01) * (p.loose ? 4 : 1.5);
-    const homeY = baseY + Math.cos(driftTime * (p.loose ? 0.95 : 0.65) + p.oy * 0.01) * (p.loose ? 4 : 1.5);
-    const dx = mouseX - homeX;
-    const dy = mouseY - homeY;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    const strength = mouseActive ? Math.max(0, 1 - dist / interactRadius) : 0;
+    const tx = p.ox + Math.sin(driftTime * (p.loose ? 0.8 : 0.55) + p.ox * 0.01) * (p.loose ? 4 : 1.5);
+    const ty = p.oy + Math.cos(driftTime * (p.loose ? 0.95 : 0.65) + p.oy * 0.01) * (p.loose ? 4 : 1.5);
 
-    let tx, ty;
-    if (strength > 0) {
-      const angle = Math.atan2(dy, dx);
-      const innerDeadzone = 18;
-      const softenedStrength = dist < innerDeadzone
-        ? 0
-        : Math.pow((dist - innerDeadzone) / Math.max(interactRadius - innerDeadzone, 1), 1.35);
-      const forceMag = softenedStrength * 14;
-      tx = homeX - Math.cos(angle) * forceMag;
-      ty = homeY - Math.sin(angle) * forceMag;
-    } else {
-      tx = homeX; ty = homeY;
+    if (mouseActive && mdist < stainRadius) {
+      p.stain = Math.min(2.2, p.stain + 0.01);
     }
 
     p.x += (tx - p.x) * p.speed * 2.5;
@@ -1045,19 +959,20 @@ function drawFrame() {
 
   // Draw connecting lines
   const gridParticles = particles.filter(p => !p.loose);
+  const maxLineDist = isMobileField ? 68 : MAX_DIST;
   for (let i = 0; i < gridParticles.length; i++) {
     const a = gridParticles[i];
     for (let j = i + 1; j < gridParticles.length; j++) {
       const b = gridParticles[j];
       const dx = a.x - b.x, dy = a.y - b.y;
       const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < MAX_DIST) {
-        const alpha = (1 - d / MAX_DIST) * 0.08;
+      if (d < maxLineDist) {
+        const alpha = (1 - d / maxLineDist) * (isMobileField ? 0.05 : 0.08);
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
         ctx.strokeStyle = `rgba(201,168,76,${alpha})`;
-        ctx.lineWidth = 0.5;
+        ctx.lineWidth = isMobileField ? 0.4 : 0.5;
         ctx.stroke();
       }
     }
@@ -1067,7 +982,7 @@ function drawFrame() {
   particles.forEach(p => {
     const dx = mouseX - p.x, dy = mouseY - p.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
-    const glow = Math.max(0, 1 - dist / 140);
+    const glow = isMobileField ? 0 : Math.max(0, 1 - dist / 140);
     const stained = Math.min(p.stain, 1.6);
     const baseAlpha = p.opacity + glow * 0.35 + stained * 0.42;
     const size = p.size + glow * 1.2 + stained * 1.35;
