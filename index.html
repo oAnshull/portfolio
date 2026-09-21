@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Anshul — Portfolio</title>
 <meta name="description" content="Anshul — software developer focused on automation, backend systems, low-level programming, and reverse engineering.">
-<meta name="theme-color" content="#0a0a08">
+<meta name="theme-color" content="#09090b">
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="Anshul — Portfolio">
 <meta property="og:description" content="Software developer focused on automation, backend systems, and low-level programming.">
@@ -20,17 +20,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0a0a08;
-    --bg2: #111110;
-    --bg3: #1a1a17;
-    --gold: #c9a84c;
-    --gold-dim: #8a6e2e;
-    --gold-bright: #f0c96b;
-    --text: #e8e4d8;
-    --text-dim: #9a9688;
-    --text-muted: #5e5b51;
-    --border: rgba(201,168,76,0.12);
-    --border-strong: rgba(201,168,76,0.28);
+    --bg: #09090b;
+    --bg2: #121215;
+    --bg3: #1b1b20;
+    --gold: #e6b84f;
+    --gold-dim: #a88132;
+    --gold-bright: #ffd57a;
+    --text: #f4f2ec;
+    --text-dim: #a8a8b3;
+    --text-muted: #65656f;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(230,184,79,0.32);
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Syne', system-ui, sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -58,7 +58,7 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  ::selection { background: rgba(201,168,76,0.35); color: #fff; }
+  ::selection { background: rgba(230,184,79,0.35); color: #fff; }
 
   /* WINDOWS SCROLLBAR */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -82,9 +82,9 @@
   #cursor-ring {
     position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
     width: 40px; height: 40px; margin: -20px 0 0 -20px;
-    border: 1px solid rgba(201,168,76,0.4);
+    border: 1px solid rgba(230,184,79,0.4);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(230,184,79,0.1) 0%, transparent 70%);
     opacity: 0;
     transform: translate3d(-100px, -100px, 0) scale(0.5);
     transition: opacity 0.2s ease, scale 0.2s ease;
@@ -100,7 +100,7 @@
   #field-canvas {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: 0;
-    opacity: 0.7;
+    opacity: 0.85;
   }
 
   /* SCROLL PROGRESS */
@@ -119,12 +119,12 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 1.4rem 0;
     padding-top: max(1.4rem, env(safe-area-inset-top));
-    background: linear-gradient(to bottom, rgba(10,10,8,0.95) 0%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(9,9,11,0.95) 0%, transparent 100%);
     transition: background 0.3s, padding 0.3s, border-color 0.3s;
     border-bottom: 1px solid transparent;
   }
   nav.scrolled {
-    background: rgba(10,10,8,0.88);
+    background: rgba(9,9,11,0.88);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom-color: var(--border);
@@ -212,14 +212,16 @@
   }
   #hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(ellipse 60% 50% at 20% 45%, rgba(201,168,76,0.07), transparent 70%);
+    background:
+      radial-gradient(ellipse 55% 45% at 22% 45%, rgba(230,184,79,0.11), transparent 70%),
+      radial-gradient(ellipse 40% 35% at 85% 15%, rgba(255,213,122,0.05), transparent 70%);
   }
   .hero-eyebrow {
     font-family: var(--mono); font-size: 0.72rem; color: var(--gold);
     letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.75rem;
     display: inline-flex; align-items: center; gap: 0.7rem;
     padding: 0.5rem 0.9rem; border: 1px solid var(--border-strong);
-    background: rgba(201,168,76,0.04);
+    background: rgba(230,184,79,0.04);
     opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
   }
   .pulse-dot {
@@ -260,7 +262,7 @@
   .hero-meta span b { color: var(--text-dim); font-weight: 400; }
   .btn-primary {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-    background: var(--gold); color: #0a0a08; padding: 0.95rem 1.9rem;
+    background: var(--gold); color: #09090b; padding: 0.95rem 1.9rem;
     font-family: var(--sans); font-weight: 700; font-size: 0.82rem;
     letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s; border: none;
@@ -311,7 +313,7 @@
   .spot { position: relative; isolation: isolate; }
   .spot::before {
     content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-    background: radial-gradient(360px circle at var(--x, 50%) var(--y, 50%), rgba(201,168,76,0.08), transparent 65%);
+    background: radial-gradient(360px circle at var(--x, 50%) var(--y, 50%), rgba(230,184,79,0.08), transparent 65%);
     opacity: 0; transition: opacity 0.3s ease;
   }
 
@@ -369,7 +371,7 @@
   .status-list li span:last-child { text-align: right; color: var(--text); }
 
   /* SKILLS */
-  #skills { border-top: 1px solid var(--border); background: rgba(17,17,16,0.85); }
+  #skills { border-top: 1px solid var(--border); background: rgba(18,18,21,0.85); }
   .skills-intro { color: var(--text-dim); max-width: 500px; line-height: 1.7; margin-bottom: 3.5rem; }
   .skills-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 1px;
@@ -439,7 +441,7 @@
   .timeline-desc { color: var(--text-dim); line-height: 1.75; font-size: 0.95rem; }
 
   /* PROJECTS */
-  #projects { border-top: 1px solid var(--border); background: rgba(17,17,16,0.85); }
+  #projects { border-top: 1px solid var(--border); background: rgba(18,18,21,0.85); }
   .projects-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(min(330px, 100%), 1fr));
     gap: 1px; background: var(--border);
@@ -521,7 +523,7 @@
     -webkit-appearance: none; appearance: none; border-radius: 0; width: 100%;
   }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
-  .form-input:focus, .form-textarea:focus { border-color: var(--gold-dim); background: #0d0d0b; }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold-dim); background: #0c0c0f; }
   .form-textarea { min-height: 140px; resize: vertical; }
   .form-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
   .form-note { font-family: var(--mono); font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.05em; }
@@ -531,7 +533,7 @@
     font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
     transition: background 0.2s, color 0.2s;
   }
-  .form-submit.sent, .form-submit:active { background: var(--gold); color: #0a0a08; }
+  .form-submit.sent, .form-submit:active { background: var(--gold); color: #09090b; }
 
   /* FOOTER */
   footer {
@@ -569,18 +571,18 @@
 
   /* HOVER EFFECTS — only on devices that can actually hover (prevents sticky hover on Android) */
   @media (hover: hover) and (pointer: fine) {
-    .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(240,201,107,0.5); }
+    .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(255,213,122,0.5); }
     .btn-ghost:hover { color: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
     .spot:hover::before { opacity: 1; }
     .stat-card:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
     .skill-cell:hover, .project-card:hover { background: var(--bg3); }
     .skill-cell:hover::after, .project-card:hover::after { transform: scaleX(1); }
     .skill-cell:hover .tag, .project-card:hover .tag { color: var(--gold); border-color: var(--gold-dim); }
-    .timeline-item:hover .timeline-dot { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201,168,76,0.15); }
+    .timeline-item:hover .timeline-dot { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 4px rgba(230,184,79,0.15); }
     .project-link:hover { gap: 0.7rem; }
     .contact-link:hover { color: var(--gold); border-color: var(--gold-dim); transform: translateX(6px); }
     .contact-link:hover .contact-link-arrow { color: var(--gold); transform: translateX(3px); }
-    .form-submit:hover { background: var(--gold); color: #0a0a08; }
+    .form-submit:hover { background: var(--gold); color: #09090b; }
     .footer-top:hover { color: var(--gold); }
   }
 
@@ -1244,7 +1246,7 @@ function drawFrame(now) {
       ctx.moveTo(pairs[i].x, pairs[i].y);
       ctx.lineTo(pairs[i + 1].x, pairs[i + 1].y);
     }
-    ctx.strokeStyle = `rgba(201,168,76,${(1 - (k + 0.5) / LINK_BUCKETS) * maxAlpha})`;
+    ctx.strokeStyle = `rgba(230,184,79,${(1 - (k + 0.5) / LINK_BUCKETS) * maxAlpha})`;
     ctx.stroke();
   }
 
@@ -1258,8 +1260,8 @@ function drawFrame(now) {
     ctx.beginPath();
     ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
     ctx.fillStyle = stained > 0.04
-      ? `rgba(240,201,107,${baseAlpha})`
-      : `rgba(201,168,76,${baseAlpha})`;
+      ? `rgba(255,213,122,${baseAlpha})`
+      : `rgba(230,184,79,${baseAlpha})`;
     ctx.fill();
   }
 }
